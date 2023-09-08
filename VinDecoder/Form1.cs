@@ -13,12 +13,10 @@ namespace VinDecoder
             MainForm = this;
         }
 
-        private VINDecoder225 VINDecoder = new VINDecoder225();
-
         private void btnDecode_Click(object sender, EventArgs e)
         {
             string vin = txtVin.Text;
-            VINDecoder.Decode(vin);
+            VINDecoder225.Decode(vin);
         }
     }
 }

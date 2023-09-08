@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 
 namespace VinDecoder
 {
-    internal class VINDecoder225
+    internal static class VINDecoder225
     {
-        public string Vin { get { return vin; } set { vin = value; } }
+        private static string yearCodeCharacters = "ABCDEFGHJKLMNPRSTUVWXYZ123456789";
 
-        private string vin = "";
+        private static bool illegal = false;
 
-        private string yearCodeCharacters = "ABCDEFGHJKLMNPRSTUVWXYZ123456789";
+        private static List<string> illegalCharacters = new List<string> { "I", "O", "Q" };
 
-        bool illegal = false;
+        private static List<Tuple<string, List<string>>> countryCodes = new List<Tuple<string, List<string>>>();
 
-        List<string> illegalCharacters = new List<string> { "I", "O", "Q" };
-
-        List<Tuple<string, List<string>>> countryCodes = new List<Tuple<string, List<string>>>();
-
-        internal VINDecoder225()
+        static VINDecoder225()
         {
             GenerateCountryCodes();
         }
         
-        internal void Decode(string vin)
+        static internal void Decode(string vin)
         {
             foreach(string s in illegalCharacters) 
             {
@@ -38,7 +34,7 @@ namespace VinDecoder
                 SetCountryAndRegionTextBoxes(countryCode);
 
                 Form1.MainForm.txtVDS.Text = vin.Substring(3, 5);
-                Form1.MainForm.txtVIS.Text = vin.Substring(10, 7);
+                Form1.MainForm.txtVIS.Text = vin.Substring(9, 8);
 
                 string mainYearCode = vin.Substring(9, 1);
                 string yearChecker = vin.Substring(6, 1);
@@ -58,7 +54,7 @@ namespace VinDecoder
             }
         }
 
-        private void SetCountryAndRegionTextBoxes(string cr)
+        static private void SetCountryAndRegionTextBoxes(string cr)
         {
             foreach (Tuple<string, List<string>> t in countryCodes)
             {
@@ -81,7 +77,7 @@ namespace VinDecoder
             }
         }
 
-        private void GenerateCountryCodes()
+        static private void GenerateCountryCodes()
         {
             List<string> countryStrings = new List<string> { "Canada", "USA", "Japan" };
 
