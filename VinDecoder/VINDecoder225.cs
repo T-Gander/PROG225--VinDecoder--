@@ -51,7 +51,6 @@ namespace VinDecoder
                 }
 
                 Form1.MainForm.txtYear.Text = finalYear.ToString();
-
             }
             else
             {

@@ -5,7 +5,7 @@ namespace VinDecoder
 {
     public partial class Form1 : Form
     {
-        internal static Form1 MainForm;
+        internal static Form1 MainForm = new Form1();
 
         public Form1()
         {
