@@ -28,7 +28,16 @@ namespace VinDecoder
             int allCodesIndex = rand1.Next(allCountryCodes.Length);
             int yearCodesIndex = rand1.Next(yearCodeCharacters.Length);
 
-            return $"{allCountryCodes[allCodesIndex]}ABABC{yearCodeCharacters[rand1.Next(31)]}EA{yearCodeCharacters[rand1.Next(31)]}CDEFGHS";
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(allCountryCodes[allCodesIndex]);
+
+            for(int i = 0; i<16; i++)
+            {
+                sb.Append(yearCodeCharacters[rand1.Next(31)]);
+            }
+
+            return sb.ToString();
         }
         
         static internal void Decode(string vin)

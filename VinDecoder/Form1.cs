@@ -11,6 +11,7 @@ namespace VinDecoder
         {
             InitializeComponent();
             MainForm = this;
+            txtVin.Text = VINDecoder225.GenerateVIN();
         }
 
         private void btnDecode_Click(object sender, EventArgs e)
@@ -22,6 +23,7 @@ namespace VinDecoder
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             txtVin.Text = VINDecoder225.GenerateVIN();
+            btnDecode.PerformClick();
         }
     }
 }
