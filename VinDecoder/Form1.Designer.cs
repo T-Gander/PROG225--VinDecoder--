@@ -135,6 +135,7 @@
             btnGenerate.TabIndex = 9;
             btnGenerate.Text = "Generate Vin";
             btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
             // 
             // txtRegion
             // 

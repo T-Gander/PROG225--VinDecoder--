@@ -20,6 +20,16 @@ namespace VinDecoder
         {
             GenerateCountryCodes();
         }
+
+        static internal string GenerateVIN()
+        {
+            string allCountryCodes = "1245J";
+            Random rand1 = new Random();
+            int allCodesIndex = rand1.Next(allCountryCodes.Length);
+            int yearCodesIndex = rand1.Next(yearCodeCharacters.Length);
+
+            return $"{allCountryCodes[allCodesIndex]}ABABC{yearCodeCharacters[rand1.Next(31)]}EA{yearCodeCharacters[rand1.Next(31)]}CDEFGHS";
+        }
         
         static internal void Decode(string vin)
         {

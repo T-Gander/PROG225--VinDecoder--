@@ -18,5 +18,10 @@ namespace VinDecoder
             string vin = txtVin.Text;
             VINDecoder225.Decode(vin);
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            txtVin.Text = VINDecoder225.GenerateVIN();
+        }
     }
 }
