@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             label2 = new Label();
             txtVin = new TextBox();
@@ -43,22 +44,25 @@
             txtVIS = new TextBox();
             txtVDS = new TextBox();
             txtYear = new TextBox();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(31, 25);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 32F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(150, 30);
+            label1.Size = new Size(295, 59);
             label1.TabIndex = 0;
             label1.Text = "VIN DECODER";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 61);
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(12, 78);
             label2.Name = "label2";
             label2.Size = new Size(138, 15);
             label2.TabIndex = 1;
@@ -66,7 +70,7 @@
             // 
             // txtVin
             // 
-            txtVin.Location = new Point(39, 79);
+            txtVin.Location = new Point(12, 96);
             txtVin.MaxLength = 17;
             txtVin.Name = "txtVin";
             txtVin.Size = new Size(198, 23);
@@ -74,7 +78,7 @@
             // 
             // btnDecode
             // 
-            btnDecode.Location = new Point(243, 79);
+            btnDecode.Location = new Point(216, 96);
             btnDecode.Name = "btnDecode";
             btnDecode.Size = new Size(75, 23);
             btnDecode.TabIndex = 3;
@@ -85,7 +89,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 129);
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(12, 146);
             label3.Name = "label3";
             label3.Size = new Size(44, 15);
             label3.TabIndex = 4;
@@ -94,7 +99,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(145, 129);
+            label4.BackColor = Color.Transparent;
+            label4.Location = new Point(118, 146);
             label4.Name = "label4";
             label4.Size = new Size(50, 15);
             label4.TabIndex = 5;
@@ -103,7 +109,8 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(39, 178);
+            label5.BackColor = Color.Transparent;
+            label5.Location = new Point(330, 146);
             label5.Name = "label5";
             label5.Size = new Size(28, 15);
             label5.TabIndex = 6;
@@ -112,7 +119,8 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(145, 178);
+            label6.BackColor = Color.Transparent;
+            label6.Location = new Point(436, 146);
             label6.Name = "label6";
             label6.Size = new Size(29, 15);
             label6.TabIndex = 7;
@@ -121,7 +129,8 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(251, 129);
+            label7.BackColor = Color.Transparent;
+            label7.Location = new Point(224, 146);
             label7.Name = "label7";
             label7.Size = new Size(23, 15);
             label7.TabIndex = 8;
@@ -129,7 +138,7 @@
             // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(324, 79);
+            btnGenerate.Location = new Point(297, 96);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(141, 23);
             btnGenerate.TabIndex = 9;
@@ -140,7 +149,7 @@
             // txtRegion
             // 
             txtRegion.Enabled = false;
-            txtRegion.Location = new Point(39, 147);
+            txtRegion.Location = new Point(12, 164);
             txtRegion.Name = "txtRegion";
             txtRegion.Size = new Size(100, 23);
             txtRegion.TabIndex = 10;
@@ -148,7 +157,7 @@
             // txtCountry
             // 
             txtCountry.Enabled = false;
-            txtCountry.Location = new Point(145, 147);
+            txtCountry.Location = new Point(118, 164);
             txtCountry.Name = "txtCountry";
             txtCountry.Size = new Size(100, 23);
             txtCountry.TabIndex = 11;
@@ -156,7 +165,7 @@
             // txtVIS
             // 
             txtVIS.Enabled = false;
-            txtVIS.Location = new Point(251, 147);
+            txtVIS.Location = new Point(224, 164);
             txtVIS.Name = "txtVIS";
             txtVIS.Size = new Size(100, 23);
             txtVIS.TabIndex = 12;
@@ -164,7 +173,7 @@
             // txtVDS
             // 
             txtVDS.Enabled = false;
-            txtVDS.Location = new Point(39, 196);
+            txtVDS.Location = new Point(330, 164);
             txtVDS.Name = "txtVDS";
             txtVDS.Size = new Size(100, 23);
             txtVDS.TabIndex = 13;
@@ -172,7 +181,7 @@
             // txtYear
             // 
             txtYear.Enabled = false;
-            txtYear.Location = new Point(145, 196);
+            txtYear.Location = new Point(436, 164);
             txtYear.Name = "txtYear";
             txtYear.Size = new Size(100, 23);
             txtYear.TabIndex = 14;
@@ -181,7 +190,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 607);
             Controls.Add(txtYear);
             Controls.Add(txtVDS);
             Controls.Add(txtVIS);
@@ -220,5 +231,6 @@
         internal TextBox txtVIS;
         internal TextBox txtVDS;
         internal TextBox txtYear;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -26,7 +26,6 @@ namespace VinDecoder
             string allCountryCodes = "1245J";
             Random rand1 = new Random();
             int allCodesIndex = rand1.Next(allCountryCodes.Length);
-            int yearCodesIndex = rand1.Next(yearCodeCharacters.Length);
 
             StringBuilder sb = new StringBuilder();
 
